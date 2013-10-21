@@ -1,5 +1,5 @@
-source "https://rubygems.org"
-ruby '1.9.3'
+source 'http://ruby.taobao.org/'
+ruby '2.0.0'
 
 group :production do
   gem "unicorn", "~> 4.6.2"
@@ -44,7 +44,7 @@ gem "sinatra-flash", "~> 0.3.0"
 gem "sinatra-contrib", github: "sinatra/sinatra-contrib"
 gem "sinatra-assetpack", "~> 0.2.2", require: "sinatra/assetpack"
 gem "i18n", "~> 0.6.4"
-gem "rake", "~> 10.0.4"
+gem "rake", "~> 10.1.0"
 gem "delayed_job_active_record", "~> 0.4.4"
 gem "bcrypt-ruby", "~> 3.0.1"
 gem "will_paginate", "~> 3.0.4"
