@@ -1,6 +1,6 @@
 development:
   adapter: sqlite3
-  database: db/stringer_test.sqlite
+  database: db/stringer_development.sqlite
 
 test:
   adapter: sqlite3
