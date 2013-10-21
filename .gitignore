@@ -22,3 +22,7 @@ bin/
 db/*.sqlite
 .DS_Store
 .localeapp
+
+#rbenv-gemsets
+.rbenv-gemsets
+gems/
