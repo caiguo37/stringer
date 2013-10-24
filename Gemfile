@@ -1,5 +1,5 @@
-source 'http://ruby.taobao.org/'
-ruby '2.0.0'
+source "http://ruby.taobao.org"
+ruby '1.9.3'
 
 group :production do
   gem "unicorn", "~> 4.6.2"
@@ -48,9 +48,9 @@ gem "rake", "~> 10.1.0"
 gem "delayed_job_active_record", "~> 0.4.4"
 gem "bcrypt-ruby", "~> 3.0.1"
 gem "will_paginate", "~> 3.0.4"
-gem "feedzirra", github: "swanson/feedzirra"
+gem "feedzirra", "~> 0.2.1"
 gem "loofah", github: "swanson/loofah"
-gem "nokogiri", "~> 1.5.9"
+gem "nokogiri", "~> 1.6.0"
 gem "feedbag", github: "dwillis/feedbag"
 gem "highline", "~> 1.6.19", require: false
 gem "thread", "~> 0.0.8"
