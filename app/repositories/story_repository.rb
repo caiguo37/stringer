@@ -92,7 +92,11 @@ class StoryRepository
         node.remove
       end
     end
-    Loofah.fragment(content.gsub(/<wbr\s*>/i, "")).scrub!(:prune).scrub!(removeAdNode).to_s
+    Loofah.fragment(content.gsub(/<wbr\s*>/i, ""))
+          .scrub!(:prune)
+          .scrub!(removeAdNode)
+          .to_s
+          .gsub(/[^[:print:]]/, '')
   end
 
   def self.expand_absolute_urls(content, base_url)
