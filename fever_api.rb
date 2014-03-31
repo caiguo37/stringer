@@ -6,6 +6,7 @@ require_relative "./app/fever_api/response"
 class FeverAPI::Endpoint < Sinatra::Base
   configure do
     set :database_file, "config/database.yml"
+    enable :logging
 
     register Sinatra::ActiveRecordExtension
     ActiveRecord::Base.include_root_in_json = false
@@ -23,11 +24,13 @@ class FeverAPI::Endpoint < Sinatra::Base
   end
 
   get "/" do
+    logger.info params
     content_type :json
     build_response(params)
   end
 
   post "/" do
+    logger.info params
     content_type :json
     build_response(params)
   end
