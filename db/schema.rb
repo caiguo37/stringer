@@ -35,9 +35,16 @@ ActiveRecord::Schema.define(version: 20140421224454) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "status"
+    t.integer  "group_id"
   end
 
   add_index "feeds", ["url"], name: "index_feeds_on_url", unique: true
+
+  create_table "groups", force: true do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "stories", force: true do |t|
     t.text     "title",       limit: 255
