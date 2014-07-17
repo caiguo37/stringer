@@ -23,7 +23,11 @@ class StoryRepository
 
   def self.fetch_unread_by_timestamp(timestamp)
     timestamp = Time.at(timestamp.to_i)
-    Story.where("created_at < ? AND is_read = ?", timestamp, false)
+    Story.where('stories.created_at < ?', timestamp).where(is_read: false)
+  end
+
+  def self.fetch_unread_by_timestamp_and_group(timestamp, group_id)
+    fetch_unread_by_timestamp(timestamp).joins(:feed).where(feeds: { group_id: group_id })
   end
 
   def self.fetch_unread_for_feed_by_timestamp(feed_id, timestamp)
@@ -92,7 +96,11 @@ class StoryRepository
         node.remove
       end
     end
-    Loofah.fragment(content.gsub(/<wbr>/i, "")).scrub!(:prune).scrub!(removeAdNode).to_s
+    Loofah.fragment(content.gsub(/<wbr\s*>/i, ""))
+          .scrub!(:prune)
+          .scrub!(removeAdNode)
+          .scrub!(:unprintable)
+          .to_s
   end
 
   def self.expand_absolute_urls(content, base_url)

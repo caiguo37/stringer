@@ -32,6 +32,7 @@ class Stringer < Sinatra::Base
     enable :method_override
 
     ActiveRecord::Base.include_root_in_json = false
+    ActiveRecord::Base.logger.level = 1
   end
 
   helpers do
