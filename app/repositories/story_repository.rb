@@ -94,16 +94,15 @@ class StoryRepository
 
   def self.sanitize(content)
     removeAdNode = Loofah::Scrubber.new do |node|
-      if node['class'] == 'mf-viral' ||
-        node['br'] && node['br'].length == 0
-        node.remove
-      end
-
       ['feedburner', 'feedsportal'].each do |word|
         if node['href'] && node['href'].include?(word) ||
           node['src'] && node['src'].include?(word)
           node.remove
         end
+      end
+
+      if node['class'] == 'mf-viral'
+        node.remove
       end
     end
 
@@ -112,6 +111,7 @@ class StoryRepository
     .scrub!(:prune)
     .scrub!(:unprintable)
     .to_s
+    .gsub(/<br>/, "")
   end
 
   def self.expand_absolute_urls(content, base_url)
