@@ -98,15 +98,18 @@ class StoryRepository
         node.remove
       end
 
-      if node['href'] && node['href'].include?('feedsportal')
+      if node['href'] && node['href'].include?('feedsportal') ||
+        node['src'] && node['src'].include?('feedsportal')
         node.remove
       end
     end
+
     Loofah.fragment(content.gsub(/<wbr\s*>/i, ""))
+    .scrub!(removeAdNode)
     .scrub!(:prune)
     .scrub!(:unprintable)
-    .scrub!(removeAdNode)
     .to_s
+    .gsub(/<br>/, "")
   end
 
   def self.expand_absolute_urls(content, base_url)
