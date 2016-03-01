@@ -11,9 +11,10 @@ class FeedRepository
     Feed.where(id: ids)
   end
 
-  def self.update_feed(feed, name, url)
+  def self.update_feed(feed, name, url, group_id = nil)
     feed.name = name
     feed.url = url
+    feed.group_id = group_id
     feed.save
   end
 
@@ -34,11 +35,11 @@ class FeedRepository
   end
 
   def self.list
-    Feed.order('lower(name)')
+    Feed.order("lower(name)")
   end
 
   def self.in_group
-    Feed.where('group_id IS NOT NULL')
+    Feed.where("group_id IS NOT NULL")
   end
 
   def self.valid_timestamp?(new_timestamp, current_timestamp)

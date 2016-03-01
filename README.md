@@ -16,7 +16,7 @@ But it does have keyboard shortcuts and was made with love!
 
 ## Installation
 
-Stringer is a Ruby (2.0.0+) app based on Sinatra, ActiveRecord, PostgreSQL, Backbone.js and DelayedJob.
+Stringer is a Ruby (2.3.0+) app based on Sinatra, ActiveRecord, PostgreSQL, Backbone.js and DelayedJob.
 
 [![Deploy to Heroku](https://cdn.herokuapp.com/deploy/button.svg)](https://heroku.com/deploy)
 
@@ -117,6 +117,10 @@ You can launch an interactive console (ala `rails c`) using `racksh`.
 Most of the heavy-lifting is done by [`feedjira`](https://github.com/feedjira/feedjira) and [`feedbag`](https://github.com/dwillis/feedbag).
 
 General sexiness courtesy of [`Twitter Bootstrap`](http://twitter.github.io/bootstrap/) and [`Flat UI`](http://designmodo.github.io/Flat-UI/).
+
+ReenieBeanie Font Copyright &copy; 2010 Typeco (james@typeco.com). Licensed under [SIL Open Font License, 1.1](scripts.sil.org/OFL).
+
+Lato Font Copyright &copy; 2010-2011 by tyPoland Lukasz Dziedzic (team@latofonts.com). Licensed under [SIL Open Font License, 1.1](scripts.sil.org/OFL).
 
 ## Contact
 
