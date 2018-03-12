@@ -107,7 +107,7 @@ class StoryRepository
 
   def self.sanitize(content)
     removeAdNode = Loofah::Scrubber.new do |node|
-      ['feedburner', 'feedsportal'].each do |word|
+      ['feedburner', 'feedsportal', 'liiLIZF8Uh6yM'].each do |word|
         if node['href'] && node['href'].include?(word) ||
           node['src'] && node['src'].include?(word)
           node.remove
